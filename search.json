@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "tokyo_r_120_lt.html#今日の話",
+    "href": "tokyo_r_120_lt.html#今日の話",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "今日の話",
+    "text": "今日の話\n\n男女比、どう出しますか？"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#今日の話-1",
+    "href": "tokyo_r_120_lt.html#今日の話-1",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "今日の話",
+    "text": "今日の話\n\n男女比、どう出しますか？\n\n\nmean(sex)\n\n\n👉 「はい終了」…でいいですか？"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#よくある風景",
+    "href": "tokyo_r_120_lt.html#よくある風景",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "よくある風景",
+    "text": "よくある風景\n\nmean(sex)\n\n\n「男性63%です」\n👉 本当に？"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#まずは優しい世界",
+    "href": "tokyo_r_120_lt.html#まずは優しい世界",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "まずは優しい世界",
+    "text": "まずは優しい世界\n\nsex &lt;- c(1, 0, 1, 1, 0)\n\nmean(sex)\n\n[1] 0.6\n\n\n\n平和な世界\nNAなし\nコーディングも正しい\n👉 この世界、現実にありますか？"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#現実その1na襲来",
+    "href": "tokyo_r_120_lt.html#現実その1na襲来",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "現実その1：NA襲来",
+    "text": "現実その1：NA襲来\n\nsex &lt;- c(1, 0, 1, NA)\n\nmean(sex)\n\n[1] NA\n\n\n\nR「NA? 計算できひん」\n👉 正しい"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#人類の叡知-na.rm-true",
+    "href": "tokyo_r_120_lt.html#人類の叡知-na.rm-true",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "人類の叡知 “na.rm = TRUE”",
+    "text": "人類の叡知 “na.rm = TRUE”\n\nmean(sex, na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n👉 「ヨシ！」"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#本当にヨシ",
+    "href": "tokyo_r_120_lt.html#本当にヨシ",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "本当にヨシ？",
+    "text": "本当にヨシ？\n\nこれ、何をしているかというと…\n👉 Complete Case解析"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#さらに言うと",
+    "href": "tokyo_r_120_lt.html#さらに言うと",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "さらに言うと",
+    "text": "さらに言うと\n\n暗黙の前提：\n👉 MCAR（Missing Completely At Random, 完全ランダム欠測）"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#でも臨床試験データの現実は",
+    "href": "tokyo_r_120_lt.html#でも臨床試験データの現実は",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "でも（臨床試験データの）現実は…",
+    "text": "でも（臨床試験データの）現実は…\n\n忙しい人ほど記録漏れ\n重症な人ほど欠測\n👉 それ、ランダムですか？"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#結論na編",
+    "href": "tokyo_r_120_lt.html#結論na編",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "結論（NA編）",
+    "text": "結論（NA編）\n\nna.rm=TRUEとは：\n👉 「祈り」\n（※ MCARであるという仮定を置いています）"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#現実その2定義ミス",
+    "href": "tokyo_r_120_lt.html#現実その2定義ミス",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "現実その2：定義ミス",
+    "text": "現実その2：定義ミス\n# 1 = 女性, 0 = 男性\nmean(sex)\n\n「男性割合63%です」\n👉 逆です"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#現実その3データ型の罠",
+    "href": "tokyo_r_120_lt.html#現実その3データ型の罠",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "現実その3：データ型の罠",
+    "text": "現実その3：データ型の罠\n\nsex &lt;- c(\"M\", \"F\", \"M\")\n\nmean(sex)\n\n[1] NA\n\n\n\n👉 R「それは無理」"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#じゃあセーフな書き方は",
+    "href": "tokyo_r_120_lt.html#じゃあセーフな書き方は",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "じゃあセーフな書き方は？",
+    "text": "じゃあセーフな書き方は？\n\nsex &lt;- c(\"M\", \"F\", \"M\", NA)\n\nmean(sex == \"M\", na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n意味がコードに表れる\n読めば分かる\n👉 未来の自分が助かる\n（内部での処理）\n\nsex == “M” ならば “TRUE”\nTRUE は 1 に、FALSE は 0 に変換"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#ここで突然-glm",
+    "href": "tokyo_r_120_lt.html#ここで突然-glm",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "ここで突然 “glm( )”",
+    "text": "ここで突然 “glm( )”\n\nsex &lt;- c(1, 0, 1, NA)\n\nglm(sex ~ 1, family = binomial)\n\n\nただの小技ではなく：\n👉 統計モデル"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#ちょっとドヤる話",
+    "href": "tokyo_r_120_lt.html#ちょっとドヤる話",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "ちょっとドヤる話",
+    "text": "ちょっとドヤる話\n\nsex &lt;- c(1, 0, 1, NA)\n\nglm(sex ~ 1, family = binomial)\n\n\n0/1平均 = （二項分布におけるパラメーター𝑝の）最尤推定量\n先ほどの例に当てはめると「二項分布におけるパラメーター𝑝」とは男女比そのもの"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#コードを実行してみた",
+    "href": "tokyo_r_120_lt.html#コードを実行してみた",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "コードを実行してみた",
+    "text": "コードを実行してみた\n\nsex &lt;- c(1, 0, 1, NA)\n\n# 二項分布のパラメータpの期待値を求める\nmod &lt;- glm(sex ~ 1, family = binomial)\n\n# ロジスティック回帰モデルの切片\nintercept &lt;- mod$coefficients |&gt; as.numeric(); print(intercept)\n\n[1] 0.6931472\n\n# 切片をplogis()関数でシグモイド変換しpを求める\nintercept |&gt; plogis()\n\n[1] 0.6666667\n\n# 切片を指数関数を用いたシグモイド関数の一般式で変換しpを求める\n1 / (1 + exp(-intercept))\n\n[1] 0.6666667\n\n# mean()で直接男性比を求める\nmean(sex, na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n👉 mean()、意外とガチ"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#今日のまとめ",
+    "href": "tokyo_r_120_lt.html#今日のまとめ",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "今日のまとめ",
+    "text": "今日のまとめ\n\nmean()で割合 → OK\nただし：\n\nNAは消えている（必要ならば適切なimputationを）\n定義で意味が変わる\n型で壊れる"
+  },
+  {
+    "objectID": "tokyo_r_120_lt.html#最後に",
+    "href": "tokyo_r_120_lt.html#最後に",
+    "title": "mean( ) で男女比？それ、本当に安全ですか",
+    "section": "最後に",
+    "text": "最後に\n\n👉 その平均、本当に“意味通り”ですか？"
+  }
+]

@@ -1,6 +1,0 @@
-project:
-  type: website  # もしくは default
-
-format:
-  revealjs:
-    self-contained: true # 依存ファイルをHTMLに埋め込む
