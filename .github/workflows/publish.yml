@@ -6,6 +6,9 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    # ここに環境変数を追加して警告に対応
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
       contents: write
     steps:
