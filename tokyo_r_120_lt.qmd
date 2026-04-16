@@ -165,6 +165,13 @@ mean(sex)
 sex <- c("M", "F", "M", NA)
 
 mean(sex == "M", na.rm = TRUE)
+
+sex == "M"
+
+typeof(c(TRUE, FALSE))
+
+c(TRUE, FALSE) == c(1, 0)
+
 ```
 
 -   意味がコードに表れる
@@ -172,12 +179,6 @@ mean(sex == "M", na.rm = TRUE)
 -   読めば分かる
 
 -   👉 **未来の自分が助かる**
-
--   （内部での処理）
-
-    -   sex == "M" ならば "TRUE"
-
-    -   TRUE は 1 に、FALSE は 0 に変換
 
 ------------------------------------------------------------------------
 
@@ -212,7 +213,7 @@ glm(sex ~ 1, family = binomial)
 
 ------------------------------------------------------------------------
 
-目的変数が1（男性）となる確率を𝑝とするとモデルの一般式は： $$\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k$$ glm(sex \~ 1, family = binomial)は説明変数のない切片のみのモデル： $$\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0$$ これをシグモイド関数で変換する： $$p = \frac{1}{1 + \exp(-\beta_0)}$$
+目的変数が1（男性）となる確率を𝑝とするロジスティック回帰モデルの式： $$\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k$$ glm(sex \~ 1, family = binomial)は説明変数のない切片のみのモデル： $$\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0$$ これをシグモイド関数で変換する： $$p = \frac{1}{1 + \exp(-\beta_0)}$$
 
 ## コードを実行してみた
 
