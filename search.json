@@ -88,7 +88,7 @@
     "href": "tokyo_r_120_lt.html#じゃあセーフな書き方は",
     "title": "mean( ) で男女比？それ、本当に安全ですか",
     "section": "じゃあセーフな書き方は？",
-    "text": "じゃあセーフな書き方は？\n\nsex &lt;- c(\"M\", \"F\", \"M\", NA)\n\nmean(sex == \"M\", na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n意味がコードに表れる\n読めば分かる\n👉 未来の自分が助かる\n（内部での処理）\n\nsex == “M” ならば “TRUE”\nTRUE は 1 に、FALSE は 0 に変換"
+    "text": "じゃあセーフな書き方は？\n\nsex &lt;- c(\"M\", \"F\", \"M\", NA)\n\nmean(sex == \"M\", na.rm = TRUE)\n\n[1] 0.6666667\n\nsex == \"M\"\n\n[1]  TRUE FALSE  TRUE    NA\n\ntypeof(c(TRUE, FALSE))\n\n[1] \"logical\"\n\nc(TRUE, FALSE) == c(1, 0)\n\n[1] TRUE TRUE\n\n\n\n意味がコードに表れる\n読めば分かる\n👉 未来の自分が助かる"
   },
   {
     "objectID": "tokyo_r_120_lt.html#ここで突然-glm",

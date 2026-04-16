@@ -1208,24 +1208,31 @@ Yoshihiro “Yoshi” Kuroki
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6666667</code></pre>
 </div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>sex <span class="sc">==</span> <span class="st">&quot;M&quot;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE  TRUE    NA</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">typeof</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] &quot;logical&quot;</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">==</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE</code></pre>
+</div>
 </div>
 <ul>
 <li class="fragment"><p>意味がコードに表れる</p></li>
 <li class="fragment"><p>読めば分かる</p></li>
 <li class="fragment"><p>👉 <strong>未来の自分が助かる</strong></p></li>
-<li class="fragment"><p>（内部での処理）</p>
-<ul>
-<li class="fragment"><p>sex == “M” ならば “TRUE”</p></li>
-<li class="fragment"><p>TRUE は 1 に、FALSE は 0 に変換</p></li>
-</ul></li>
 </ul>
 </section>
 <section id="ここで突然-glm" class="slide level2">
 <h2>ここで突然 “glm( )”</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
-<span id="cb14-2"><a></a></span>
-<span id="cb14-3"><a></a><span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a><span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">ただの小技ではなく：</li>
@@ -1235,9 +1242,9 @@ Yoshihiro “Yoshi” Kuroki
 <section id="ちょっとドヤる話" class="slide level2">
 <h2>ちょっとドヤる話</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
-<span id="cb15-2"><a></a></span>
-<span id="cb15-3"><a></a><span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a><span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">0/1平均 = （二項分布におけるパラメーター𝑝の）最尤推定量</li>
@@ -1246,33 +1253,33 @@ Yoshihiro “Yoshi” Kuroki
 </section>
 <section class="slide level2">
 
-<p>目的変数が1（男性）となる確率を𝑝とするとモデルの一般式は： <span class="math display">\[\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k\]</span> glm(sex ~ 1, family = binomial)は説明変数のない切片のみのモデル： <span class="math display">\[\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0\]</span> これをシグモイド関数で変換する： <span class="math display">\[p = \frac{1}{1 + \exp(-\beta_0)}\]</span></p>
+<p>目的変数が1（男性）となる確率を𝑝とするロジスティック回帰モデルの式： <span class="math display">\[\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k\]</span> glm(sex ~ 1, family = binomial)は説明変数のない切片のみのモデル： <span class="math display">\[\text{logit}(p) = \ln \left( \frac{p}{1-p} \right) = \beta_0\]</span> これをシグモイド関数で変換する： <span class="math display">\[p = \frac{1}{1 + \exp(-\beta_0)}\]</span></p>
 </section>
 <section id="コードを実行してみた" class="slide level2">
 <h2>コードを実行してみた</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
-<span id="cb16-2"><a></a></span>
-<span id="cb16-3"><a></a><span class="co"># 二項分布のパラメータpの期待値を求める</span></span>
-<span id="cb16-4"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span>
-<span id="cb16-5"><a></a></span>
-<span id="cb16-6"><a></a><span class="co"># ロジスティック回帰モデルの切片</span></span>
-<span id="cb16-7"><a></a>intercept <span class="ot">&lt;-</span> mod<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(); <span class="fu">print</span>(intercept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
+<span id="cb22-2"><a></a></span>
+<span id="cb22-3"><a></a><span class="co"># 二項分布のパラメータpの期待値を求める</span></span>
+<span id="cb22-4"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="co"># ロジスティック回帰モデルの切片</span></span>
+<span id="cb22-7"><a></a>intercept <span class="ot">&lt;-</span> mod<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(); <span class="fu">print</span>(intercept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6931472</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># 切片をplogis()関数でシグモイド変換しpを求める</span></span>
-<span id="cb18-2"><a></a>intercept <span class="sc">|&gt;</span> <span class="fu">plogis</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># 切片をplogis()関数でシグモイド変換しpを求める</span></span>
+<span id="cb24-2"><a></a>intercept <span class="sc">|&gt;</span> <span class="fu">plogis</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6666667</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># 切片を指数関数を用いたシグモイド関数の一般式で変換しpを求める</span></span>
-<span id="cb20-2"><a></a><span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>intercept))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># 切片を指数関数を用いたシグモイド関数の一般式で変換しpを求める</span></span>
+<span id="cb26-2"><a></a><span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>intercept))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6666667</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># mean()で直接男性比を求める</span></span>
-<span id="cb22-2"><a></a><span class="fu">mean</span>(sex, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># mean()で直接男性比を求める</span></span>
+<span id="cb28-2"><a></a><span class="fu">mean</span>(sex, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6666667</code></pre>
 </div>
