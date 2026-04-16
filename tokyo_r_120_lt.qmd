@@ -12,7 +12,7 @@ format:
     width: 1280
     height: 720
     slide-number: true
-    footer: <https://github.com/yoshihirokuroki/tokyo_r_120.git>
+    footer: <https://yoshihirokuroki.github.io/tokyo_r_120/tokyo_r_120_lt.html>
     transition: fade
     incremental: true
     center-title-slide: true
