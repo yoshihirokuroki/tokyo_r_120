@@ -1157,6 +1157,7 @@ Yoshihiro “Yoshi” Kuroki
 <ul>
 <li class="fragment">暗黙の前提：</li>
 <li class="fragment">👉 <strong>MCAR（Missing Completely At Random, 完全ランダム欠測）</strong></li>
+<li class="fragment">（正確には、欠測が目的変数自体の値に依存しなければMARでも十分な場合があります）</li>
 </ul>
 </section>
 <section id="でも臨床試験データの現実は" class="slide level2">
@@ -1248,6 +1249,7 @@ Yoshihiro “Yoshi” Kuroki
 <ul>
 <li class="fragment">0/1平均 = （二項分布におけるパラメーター𝑝の）最尤推定量</li>
 <li class="fragment">先ほどの例に当てはめると「二項分布におけるパラメーター𝑝」とは男女比そのもの</li>
+<li class="fragment">⚠️ ただし<code>glm()</code>もNAを除外して推定（= <code>mean(sex, na.rm=TRUE)</code>と同様のComplete Case解析）</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1259,7 +1261,7 @@ Yoshihiro “Yoshi” Kuroki
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
 <span id="cb22-2"><a></a></span>
-<span id="cb22-3"><a></a><span class="co"># 二項分布のパラメータpの期待値を求める</span></span>
+<span id="cb22-3"><a></a><span class="co"># 二項分布のパラメータpの最尤推定量を求める</span></span>
 <span id="cb22-4"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span>
 <span id="cb22-5"><a></a></span>
 <span id="cb22-6"><a></a><span class="co"># ロジスティック回帰モデルの切片</span></span>
