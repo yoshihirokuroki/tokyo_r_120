@@ -53,7 +53,7 @@
     "href": "tokyo_r_120_lt.html#さらに言うと",
     "title": "mean( ) で男女比？それ、本当に安全ですか",
     "section": "さらに言うと",
-    "text": "さらに言うと\n\n暗黙の前提：\n👉 MCAR（Missing Completely At Random, 完全ランダム欠測）"
+    "text": "さらに言うと\n\n暗黙の前提：\n👉 MCAR（Missing Completely At Random, 完全ランダム欠測）\n（正確には、欠測が目的変数自体の値に依存しなければMARでも十分な場合があります）"
   },
   {
     "objectID": "tokyo_r_120_lt.html#でも臨床試験データの現実は",
@@ -102,14 +102,14 @@
     "href": "tokyo_r_120_lt.html#ちょっとドヤる話",
     "title": "mean( ) で男女比？それ、本当に安全ですか",
     "section": "ちょっとドヤる話",
-    "text": "ちょっとドヤる話\n\nsex &lt;- c(1, 0, 1, NA)\n\nglm(sex ~ 1, family = binomial)\n\n\n0/1平均 = （二項分布におけるパラメーター𝑝の）最尤推定量\n先ほどの例に当てはめると「二項分布におけるパラメーター𝑝」とは男女比そのもの"
+    "text": "ちょっとドヤる話\n\nsex &lt;- c(1, 0, 1, NA)\n\nglm(sex ~ 1, family = binomial)\n\n\n0/1平均 = （二項分布におけるパラメーター𝑝の）最尤推定量\n先ほどの例に当てはめると「二項分布におけるパラメーター𝑝」とは男女比そのもの\n⚠️ ただしglm()もNAを除外して推定（= mean(sex, na.rm=TRUE)と同様のComplete Case解析）"
   },
   {
     "objectID": "tokyo_r_120_lt.html#コードを実行してみた",
     "href": "tokyo_r_120_lt.html#コードを実行してみた",
     "title": "mean( ) で男女比？それ、本当に安全ですか",
     "section": "コードを実行してみた",
-    "text": "コードを実行してみた\n\nsex &lt;- c(1, 0, 1, NA)\n\n# 二項分布のパラメータpの期待値を求める\nmod &lt;- glm(sex ~ 1, family = binomial)\n\n# ロジスティック回帰モデルの切片\nintercept &lt;- mod$coefficients |&gt; as.numeric(); print(intercept)\n\n[1] 0.6931472\n\n# 切片をplogis()関数でシグモイド変換しpを求める\nintercept |&gt; plogis()\n\n[1] 0.6666667\n\n# 切片を指数関数を用いたシグモイド関数の一般式で変換しpを求める\n1 / (1 + exp(-intercept))\n\n[1] 0.6666667\n\n# mean()で直接男性比を求める\nmean(sex, na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n👉 mean()、意外とガチ"
+    "text": "コードを実行してみた\n\nsex &lt;- c(1, 0, 1, NA)\n\n# 二項分布のパラメータpの最尤推定量を求める\nmod &lt;- glm(sex ~ 1, family = binomial)\n\n# ロジスティック回帰モデルの切片\nintercept &lt;- mod$coefficients |&gt; as.numeric(); print(intercept)\n\n[1] 0.6931472\n\n# 切片をplogis()関数でシグモイド変換しpを求める\nintercept |&gt; plogis()\n\n[1] 0.6666667\n\n# 切片を指数関数を用いたシグモイド関数の一般式で変換しpを求める\n1 / (1 + exp(-intercept))\n\n[1] 0.6666667\n\n# mean()で直接男性比を求める\nmean(sex, na.rm = TRUE)\n\n[1] 0.6666667\n\n\n\n👉 mean()、意外とガチ"
   },
   {
     "objectID": "tokyo_r_120_lt.html#今日のまとめ",
