@@ -225,11 +225,11 @@ glm(sex ~ 1, family = binomial)
 
 sex <- c(1, 0, 1, NA)
 
-# 二項分布のパラメータpの最尤推定量を求める
-mod <- glm(sex ~ 1, family = binomial)
+# （二項分布のパラメータpの最尤推定量を求める）
+fit <- glm(sex ~ 1, family = binomial)
 
 # ロジスティック回帰モデルの切片
-intercept <- mod$coefficients |> as.numeric(); print(intercept)
+intercept <- fit$coefficients |> as.numeric(); print(intercept)
 
 # 切片をplogis()関数でシグモイド変換しpを求める
 intercept |> plogis()
@@ -269,4 +269,3 @@ mean(sex, na.rm = TRUE)
 ::: {.absolute top="50%" left="50%" style="transform: translate(-50%, -50%); font-size: 5em; text-align: center; width: 100%;"}
 enjoy!
 :::
-

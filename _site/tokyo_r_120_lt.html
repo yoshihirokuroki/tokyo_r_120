@@ -1261,11 +1261,11 @@ Yoshihiro “Yoshi” Kuroki
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>sex <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="cn">NA</span>)</span>
 <span id="cb22-2"><a></a></span>
-<span id="cb22-3"><a></a><span class="co"># 二項分布のパラメータpの最尤推定量を求める</span></span>
-<span id="cb22-4"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span>
+<span id="cb22-3"><a></a><span class="co"># （二項分布のパラメータpの最尤推定量を求める）</span></span>
+<span id="cb22-4"><a></a>fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(sex <span class="sc">~</span> <span class="dv">1</span>, <span class="at">family =</span> binomial)</span>
 <span id="cb22-5"><a></a></span>
 <span id="cb22-6"><a></a><span class="co"># ロジスティック回帰モデルの切片</span></span>
-<span id="cb22-7"><a></a>intercept <span class="ot">&lt;-</span> mod<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(); <span class="fu">print</span>(intercept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb22-7"><a></a>intercept <span class="ot">&lt;-</span> fit<span class="sc">$</span>coefficients <span class="sc">|&gt;</span> <span class="fu">as.numeric</span>(); <span class="fu">print</span>(intercept)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6931472</code></pre>
 </div>
